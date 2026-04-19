@@ -1,11 +1,26 @@
 import { motion } from "motion/react";
 
 const TICKER_ITEMS = [
-  "Admissions 2026–27 open for B.Tech, MBA, MCA — apply before 15 June",
-  "NAAC A+ Accreditation reaffirmed — Third cycle",
-  "Placement Season 2025 closes at 96% with ₹42 LPA highest package",
-  "SCET ranked among Top 25 engineering colleges in Central India — IBR 2025",
-  "Tech Samagam '26 national fest — registrations open",
+  {
+    label: "Admissions 2026–27 open for B.Tech, MBA, MCA — apply before 15 June",
+    link: "#admissions",
+  },
+  {
+    label: "NAAC A+ Accreditation reaffirmed — Third cycle",
+    link: "#accreditation",
+  },
+  {
+    label: "Placement Season 2025 closes at 96% with ₹42 LPA highest package",
+    link: "#placements",
+  },
+  {
+    label: "SCET ranked among Top 25 engineering colleges in Central India — IBR 2025",
+    link: "#ranking",
+  },
+  {
+    label: "Tech Samagam '26 national fest — registrations open",
+    link: "#fest",
+  },
 ];
 
 export default function Ticker() {
@@ -16,9 +31,13 @@ export default function Ticker() {
       </div>
       <div className="flex whitespace-nowrap animate-ticker pl-[30px]">
         {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-          <div key={i} className="px-10 text-[13px] tracking-wide flex items-center gap-3 before:content-['◆'] before:text-accent before:text-[8px]">
-            {item}
-          </div>
+          <a
+            key={i}
+            href={item.link}
+            className="px-10 text-[13px] tracking-wide flex items-center gap-3 before:content-['◆'] before:text-accent before:text-[8px] cursor-pointer hover:underline"
+          >
+            {item.label}
+          </a>
         ))}
       </div>
     </div>
