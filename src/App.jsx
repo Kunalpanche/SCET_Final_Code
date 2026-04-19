@@ -23,8 +23,8 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Ticker />
       <Header />
+       <Ticker />
       <main>
         <Hero />
         <AffiliationStrip />

@@ -46,16 +46,12 @@ export default function Header() {
     <header className="bg-nav-bg/92 text-nav-text sticky top-0 z-[100] border-b border-border backdrop-blur-xl">
       <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-[14px] lg:py-[18px] flex items-center justify-between gap-6 lg:gap-10">
         <a href="#" className="flex items-center gap-[14px]">
-          <svg className="w-[42px] h-[42px] lg:w-[52px] lg:h-[52px] flex-shrink-0" viewBox="0 0 52 52" fill="none">
-            <circle cx="26" cy="26" r="25" stroke="currentColor" strokeWidth="1" className="text-accent/30" />
-            <path d="M8 34 Q26 10 44 34" stroke="currentColor" strokeWidth="1.5" fill="none" className="text-accent" />
-            <circle cx="26" cy="22" r="7" fill="currentColor" className="text-accent" />
-            <path d="M26 13 L26 6 M26 31 L26 38 M35 22 L42 22 M10 22 L17 22" stroke="currentColor" strokeWidth="1" className="text-accent" />
-          </svg>
-          <div className="flex flex-col leading-[1.05]">
+          <img src="/Assets/Academic.png" alt="College Logo" className="h-15 w-15 object-contain" />
+          <img src="/Assets/Society.png" alt="College Logo" className="h-15 w-15 object-contain" />
+          {/* <div className="flex flex-col leading-[1.05]">
             <span className="font-serif text-lg font-bold tracking-tight italic uppercase">Suryodaya</span>
             <span className="font-mono text-[9px] tracking-[0.28em] text-nav-text mt-[3px] font-bold opacity-60">CET · EST. 2002</span>
-          </div>
+          </div> */}
         </a>
         
         <div className="hidden xl:flex items-center gap-0.5 flex-1 justify-center relative">
