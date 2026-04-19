@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Search, Sun, Moon, X, Command } from "lucide-react";
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
