@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Search, Sun, Moon, X, Command } from "lucide-react";
 
 export default function Header() {
@@ -7,6 +7,9 @@ export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
+
+  const currentPathHash = location.pathname + location.hash;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -116,7 +119,12 @@ export default function Header() {
             </div>
           ) : (
             <nav className="flex items-center gap-0.5">
-              {sections.map((item, i) => (
+              {sections.map((item, i) => {
+                const isActive = item.href === '/'
+                  ? currentPathHash === '/' || currentPathHash === ''
+                  : currentPathHash === item.href || (item.isDropdown && location.pathname.startsWith('/department/'));
+
+                return (
                 <div key={item.name} className="relative nav-dropdown-container">
                   <Link
                     to={item.href}
@@ -128,7 +136,7 @@ export default function Header() {
                         setActiveDropdown(null);
                       }
                     }}
-                    className={`px-4 py-2.5 text-[13px] font-bold tracking-wide transition-all relative hover:opacity-100 hover:text-accent flex items-center gap-1 ${i === 0 ? "text-accent opacity-100 after:content-[''] after:absolute after:bottom-0.5 after:left-4 after:right-4 after:h-[1px] after:bg-accent" : "text-nav-text opacity-60"} ${activeDropdown === item.name ? "text-accent opacity-100" : ""}`}
+                    className={`px-4 py-2.5 text-[13px] font-bold tracking-wide transition-all relative hover:opacity-100 hover:text-accent flex items-center gap-1 ${isActive || activeDropdown === item.name ? "text-accent opacity-100 after:content-[''] after:absolute after:bottom-0.5 after:left-4 after:right-4 after:h-[1px] after:bg-accent" : "text-nav-text opacity-60"}`}
                   >
                     {item.name}
                   </Link>
@@ -164,7 +172,8 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-              ))}
+                );
+              })}
             </nav>
           )}
         </div>
