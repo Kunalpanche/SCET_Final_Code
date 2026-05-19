@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import NoticeBoard from "../NoticeBoard";
 
 const CAROUSEL_IMAGES = [
-  "/Assets/C1.JPG",
-  "/Assets/C2.JPG",
-  "/Assets/C3.JPG",
-  "/Assets/C4.JPG",
+  "https://res.cloudinary.com/dyzglyvad/image/upload/v1777026491/c1_tcqfh3.png",
+  "https://res.cloudinary.com/dyzglyvad/image/upload/v1777026493/c2_olbxle.png",
+  "https://res.cloudinary.com/dyzglyvad/image/upload/v1777026492/c3_wmecml.png",
+  "https://res.cloudinary.com/dyzglyvad/image/upload/v1777026492/c4_r9tksv.png",
 ];
 
 const STATS = [
@@ -35,9 +35,8 @@ export default function Hero() {
         {CAROUSEL_IMAGES.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1500 ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1500 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
             style={{
               backgroundImage: `url(${image})`,
               backgroundSize: "cover",
@@ -52,7 +51,7 @@ export default function Hero() {
       <div className="max-w-[1440px] mx-auto w-full px-5 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center min-h-[600px] lg:min-h-[700px]">
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -72,7 +71,7 @@ export default function Hero() {
               Shaping the next generation of <span className="font-serif italic text-yellow-300">engineers and innovators</span> with world-class education and industry excellence.
             </p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -88,7 +87,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Right - News Card (Glass morphism) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -104,11 +103,10 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
-            className={`transition-all ${
-              index === currentImageIndex 
-                ? "bg-accent w-8 h-2.5" 
-                : "bg-white/40 hover:bg-white/70 w-2.5 h-2.5"
-            } rounded-full`}
+            className={`transition-all ${index === currentImageIndex
+              ? "bg-accent w-8 h-2.5"
+              : "bg-white/40 hover:bg-white/70 w-2.5 h-2.5"
+              } rounded-full`}
             aria-label={`Go to image ${index + 1}`}
           />
         ))}

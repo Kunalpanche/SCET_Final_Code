@@ -6,15 +6,21 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.1fr] gap-10 lg:gap-[60px] pb-[60px] border-b border-border">
         <div className="flex flex-col">
           <a href="#" className="flex items-center gap-[14px] mb-[20px]">
-            <img src="/Assets/Academic.png" alt="Academic Logo" className="h-16 w-16 object-contain" />
-            <img src="/Assets/Society.png" alt="Society Logo" className="h-16 w-16 object-contain" />
+            <img src="https://res.cloudinary.com/dyzglyvad/image/upload/v1777026177/Academic_v3aaby.png" alt="Academic Logo" className="h-16 w-16 object-contain" />
+            <img src="https://res.cloudinary.com/dyzglyvad/image/upload/v1777026179/Society_odj4cw.png" alt="Society Logo" className="h-16 w-16 object-contain" />
           </a>
           <div className="font-serif italic text-[17px] leading-relaxed opacity-60 max-w-[280px] mb-7">
             A place where the sun rises on curious minds, and never quite sets.
           </div>
           <div className="flex gap-2.5">
-            {[Instagram, Linkedin, Youtube, Facebook, Twitter].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 border border-border rounded-full flex items-center justify-center hover:bg-accent hover:border-accent hover:text-bg transition-all">
+            {[
+              { Icon: Instagram, href: "https://www.instagram.com/suryodayacollege/" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/suryodaya-college-of-engineering-technology-nagpur/posts/?feedView=all" },
+              { Icon: Youtube, href: "https://www.youtube.com/@suryodayacollegeofengg.tec3955" },
+              { Icon: Facebook, href: "https://www.facebook.com/SuryodayaCollege" },
+              { Icon: Twitter, href: "#" }
+            ].map(({ Icon, href }, i) => (
+              <a key={i} href={href} target={href !== "#" ? "_blank" : "_self"} rel={href !== "#" ? "noopener noreferrer" : ""} className="w-10 h-10 border border-border rounded-full flex items-center justify-center hover:bg-accent hover:border-accent hover:text-bg transition-all">
                 <Icon className="w-4 h-4" />
               </a>
             ))}
@@ -29,7 +35,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        
+
         <div>
           <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent mb-[22px] font-bold">Students</h4>
           <ul className="flex flex-col gap-3">
@@ -51,9 +57,9 @@ export default function Footer() {
         <div>
           <h4 className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent mb-[22px] font-bold">Connect</h4>
           <ul className="flex flex-col gap-3 text-[14px] opacity-60 font-medium">
-            <li>Nagpur–Katol Road,<br />Nagpur 441 501</li>
-            <li><a href="mailto:hello@scet.ac.in" className="hover:text-accent transition-all">hello@scet.ac.in</a></li>
-            <li><a href="tel:+917126551200" className="hover:text-accent transition-all">+91 712 655 1200</a></li>
+            <li>Survey No. 117/1 & 117/3 A, Near Dighori Naka, Vihirgaon, Umrer Road,<br /> Nagpur, Maharashtra 440034</li>
+            <li><a href="mailto:hello@scet.ac.in" className="hover:text-accent transition-all">edu@scetngp.com</a></li>
+            <li><a href="tel:+917126551200" className="hover:text-accent transition-all">+91 712 655 1200 / 1300</a></li>
             <li><a href="#" className="hover:text-accent transition-all">Careers at SCET</a></li>
           </ul>
         </div>

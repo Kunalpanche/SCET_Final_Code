@@ -1,10 +1,10 @@
 const TILES = [
-  { id: 1, cat: "Event · 2025", title: "Annual Convocation", wide: true, color: "from-surface to-surface-light" },
-  { id: 2, cat: "Facility", title: "Central Library", color: "from-surface-light to-surface" },
-  { id: 3, cat: "Student Life", title: "Tech Samagam Fest", tall: true, color: "from-surface to-border" },
-  { id: 4, cat: "Research", title: "Robotics Lab", color: "from-surface to-surface-light" },
-  { id: 5, cat: "Sports", title: "Inter-College Meet", color: "from-surface-light to-border" },
-  { id: 6, cat: "Campus", title: "Morning at the quad", color: "from-border to-surface" },
+  { id: 1, cat: "Event · 2025", title: "Annual Convocation", wide: true, color: "from-surface to-surface-light", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777024415/garba_z9croq.png" },
+  { id: 2, cat: "Facility", title: "Central Library", color: "from-surface-light to-surface", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777025064/centrallib_y1m68y.png" },
+  { id: 3, cat: "Student Life", title: "Central India hackathon", tall: true, color: "from-surface to-border", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777025328/cih_lwf0tr.png" },
+  { id: 4, cat: "Research", title: "Robotics Lab", color: "from-surface to-surface-light", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777025435/robothand_x7amcx.png" },
+  { id: 5, cat: "Tech Pro 2025", title: "Project Compition", color: "from-surface-light to-border", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777025850/Techpro_m8ebqz.png" },
+  { id: 6, cat: "Campus", title: "Morning at the quad", color: "from-border to-surface", image: "https://res.cloudinary.com/dyzglyvad/image/upload/v1777024271/cetstudnets_irg20l.png" },
 ];
 
 export default function Gallery() {
@@ -23,16 +23,21 @@ export default function Gallery() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
           {TILES.map((tile) => (
-            <div 
+            <div
               key={tile.id}
-              className={`group relative overflow-hidden rounded-[8px] bg-surface flex items-end p-5 lg:p-[22px] min-h-[220px] transition-transform hover:scale-[0.98] border border-border ${
-                tile.wide ? "lg:col-span-2" : ""
-              } ${
-                tile.tall ? "lg:row-span-2 min-h-[460px]" : ""
-              }`}
+              className={`group relative overflow-hidden rounded-[8px] bg-surface flex items-end p-5 lg:p-[22px] min-h-[220px] transition-transform hover:scale-[0.98] border border-border ${tile.wide ? "lg:col-span-2" : ""
+                } ${tile.tall ? "lg:row-span-2 min-h-[460px]" : ""
+                }`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br transition-opacity opacity-20 ${tile.color}`} />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent pointer-events-none" />
+              {tile.image && (
+                <img
+                  src={tile.image}
+                  alt={tile.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
+              <div className={`absolute inset-0 bg-gradient-to-br transition-opacity opacity-20 ${tile.color} ${tile.image ? "group-hover:opacity-40" : ""}`} />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent pointer-events-none" />
               <div className="relative z-10">
                 <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-accent mb-1.5 font-bold">{tile.cat}</div>
                 <div className="font-serif text-[18px] font-medium leading-tight text-text tracking-tight uppercase italic">{tile.title}</div>

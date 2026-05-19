@@ -27,7 +27,13 @@ export default function AboutSection() {
           </p>
 
           <div className="flex items-center gap-5 mt-5 pt-[26px] border-t border-border">
-            <div className="w-16 h-16 rounded-full bg-surface-light border border-border flex items-center justify-center text-accent font-serif text-[22px] font-medium">RP</div>
+            <div className="w-16 h-16 rounded-full bg-surface-light border border-border overflow-hidden">
+              <img 
+                src="https://res.cloudinary.com/dyzglyvad/image/upload/v1777023120/Arajpure_xiqevt.png" 
+                alt="Dr. V. G. Arajpure" 
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div>
               <div className="font-serif text-lg font-medium">Dr. V. G. Arajpure</div>
               <div className="font-mono text-[10px] tracking-[0.18em] uppercase opacity-40 mt-0.5 font-medium">Principal · SCET Nagpur</div>
